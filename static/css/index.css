@@ -15,9 +15,29 @@ html {min-width: 1850px;}
     float: left;
 }
 
+.login {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.input {
+    margin: 10px;
+}
+
 .main {
     background-color: cadetblue;
     width: 1500px;
     height: 800px;
     float: left;
+}
+
+.button {
+    background-color:#5fd9b0;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 30px;
 }
