@@ -2,7 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!-- http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd"> -->
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<!-- <bean id="homeController" class="com.jjh.today.HomeController"></bean> -->
+	<!-- DB 연결 정보 정의 -->
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" 	value="org.mariadb.jdbc.Driver"></property>
+		<property name="url" 				value="jdbc:mysql://192.168.0.4:3306/IMGRANK"></property>
+		<property name="username" 			value="root"></property>
+		<property name="password" 			value="920501"></property>
+	</bean>
+	
+	<!-- Mybatis 설정 정의  -->
+	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:/sql/*.xml"></property>
+	</bean>
+	
+	<!-- 사용할 연결 정보 생성 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="factoryBean"></constructor-arg>
+	</bean>
 </beans>

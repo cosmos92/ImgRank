@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="LoginSql">
+  <select id="test" resultType="String">
+	select 1 as cnt
+  </select>
+  
+  <select id="ID" resultType="com.jjh.today.LoginBean">			<!-- Bean 형태로 DB에서 컬럼을 Select -->
+	select ID, TEXT from personal_data where DELYN = 'N'				<!-- 삭제 여부가 'N' 일 경우 notice 테이블에서 NO, TEXT 데이터 호출 -->
+  </select>
+  
+  <insert id="Sign_Up" parameterType="com.jjh.today.LoginBean">	<!-- Bean 형태로 DB에 Insert -->
+	INSERT INTO personal_data (ID) VALUES (#{ID});				<!-- 해당 테이블 (컬럼) 값 (입력값) -->
+  </insert>
+</mapper>
