@@ -29,7 +29,13 @@ public class HomeController {
 	@RequestMapping("/imgrank") //초기 메인 화면 home.jsp로 이동
 	public String home(HttpServletRequest req) {
 		
-		return "/home";
+		return "/index";
+	}
+	
+	@RequestMapping("/mygallery") 
+	public String mygallery(HttpServletRequest req) {
+		
+		return "/mygallery";
 	}
 	
 	
